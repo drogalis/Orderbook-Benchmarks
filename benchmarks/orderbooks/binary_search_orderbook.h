@@ -13,7 +13,7 @@ namespace gkp {
 class BinarySearchOrderbook {
  public:
   using price_level   = double;
-  using pair_type = std::pair<price_level, OrderBookLevel>;
+  using pair_type     = std::pair<price_level, OrderBookLevel>;
   using bid_container = std::vector<pair_type>;
   using ask_container = std::vector<pair_type>;
 
@@ -40,12 +40,19 @@ class BinarySearchOrderbook {
   {
     // Bid ///////////////
     if (buy_sell == 'b') {
-      auto it = std::lower_bound(bid_.begin(), bid_.end(), price, [](const pair_type& pair, const double& price){ return pair.first < price; });
+      auto it =
+          std::lower_bound(bid_.begin(), bid_.end(), price,
+                           [](const pair_type& pair, const double& price) {
+                             return pair.first < price;
+                           });
       if (it != bid_.end() && it->first == price) {
         // Erase
         if (quantity < epsilon) {
           bid_.erase(it);
-          std::sort(bid_.begin(), bid_.end(), [](const pair_type& pairA, const pair_type& pairB){ return pairA.first < pairB.first; });
+          std::sort(bid_.begin(), bid_.end(),
+                    [](const pair_type& pairA, const pair_type& pairB) {
+                      return pairA.first < pairB.first;
+                    });
         } else {
           // Update
           it->second.quantity_ = quantity;
@@ -53,17 +60,26 @@ class BinarySearchOrderbook {
         // Insert
       } else if (quantity >= epsilon) {
         bid_.emplace_back(price, OrderBookLevel{quantity});
-        std::sort(bid_.begin(), bid_.end(), [](const pair_type& pairA, const pair_type& pairB){ return pairA.first < pairB.first; });
+        std::sort(bid_.begin(), bid_.end(),
+                  [](const pair_type& pairA, const pair_type& pairB) {
+                    return pairA.first < pairB.first;
+                  });
       }
       return;
     }
     // Ask ///////////////
-    auto it = std::lower_bound(ask_.begin(), ask_.end(), price, [](const pair_type& pair, const double& price){ return pair.first < price; });
+    auto it = std::lower_bound(ask_.begin(), ask_.end(), price,
+                               [](const pair_type& pair, const double& price) {
+                                 return pair.first < price;
+                               });
     if (it != ask_.end() && it->first == price) {
       // Erase
       if (quantity < epsilon) {
         ask_.erase(it);
-        std::sort(ask_.begin(), ask_.end(), [](const pair_type& pairA, const pair_type& pairB){ return pairA.first < pairB.first; });
+        std::sort(ask_.begin(), ask_.end(),
+                  [](const pair_type& pairA, const pair_type& pairB) {
+                    return pairA.first < pairB.first;
+                  });
       } else {
         // Update
         it->second.quantity_ = quantity;
@@ -71,7 +87,10 @@ class BinarySearchOrderbook {
       // Insert
     } else if (quantity >= epsilon) {
       ask_.emplace_back(price, OrderBookLevel{quantity});
-      std::sort(ask_.begin(), ask_.end(), [](const pair_type& pairA, const pair_type& pairB){ return pairA.first < pairB.first; });
+      std::sort(ask_.begin(), ask_.end(),
+                [](const pair_type& pairA, const pair_type& pairB) {
+                  return pairA.first < pairB.first;
+                });
     }
   }
 

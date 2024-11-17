@@ -93,25 +93,30 @@ BM_DroFlatMap_Orderbook(benchmark::State& state)
   }
 }
 
-constexpr static uint32_t begin_size = 1<<7;
-constexpr static uint32_t end_size   = 1<<16;
+constexpr static uint32_t begin_size = 1 << 7;
+constexpr static uint32_t end_size   = 1 << 16;
 // Register the function as a benchmark
 BENCHMARK(BM_stdMap_Orderbook)->RangeMultiplier(2)->Range(begin_size, end_size);
-BENCHMARK(BM_BoostFlatMap_Orderbook)
-    ->RangeMultiplier(2)
-    ->Range(begin_size, end_size);
+
 BENCHMARK(BM_stdMapAnkerl_Orderbook)
     ->RangeMultiplier(2)
     ->Range(begin_size, end_size);
-//BENCHMARK(BM_LinearSearch_Orderbook)
-//    ->RangeMultiplier(2)
-//   ->Range(begin_size, end_size);
-//BENCHMARK(BM_BinarySearch_Orderbook)
-//    ->RangeMultiplier(2)
-//    ->Range(begin_size, end_size);
+
 BENCHMARK(BM_DroFlatMap_Orderbook)
     ->RangeMultiplier(2)
     ->Range(begin_size, end_size);
+
+BENCHMARK(BM_BoostFlatMap_Orderbook)
+    ->RangeMultiplier(2)
+    ->Range(begin_size, end_size);
+
+// BENCHMARK(BM_LinearSearch_Orderbook)
+//     ->RangeMultiplier(2)
+//    ->Range(begin_size, end_size);
+
+// BENCHMARK(BM_BinarySearch_Orderbook)
+//     ->RangeMultiplier(2)
+//     ->Range(begin_size, end_size);
 
 // Run the benchmark
 BENCHMARK_MAIN();

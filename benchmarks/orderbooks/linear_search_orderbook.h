@@ -13,7 +13,7 @@ namespace gkp {
 class LinearSearchOrderbook {
  public:
   using price_level   = double;
-  using pair_type = std::pair<price_level, OrderBookLevel>;
+  using pair_type     = std::pair<price_level, OrderBookLevel>;
   using bid_container = std::vector<pair_type>;
   using ask_container = std::vector<pair_type>;
 
@@ -40,7 +40,9 @@ class LinearSearchOrderbook {
   {
     // Bid ///////////////
     if (buy_sell == 'b') {
-      auto it = std::find_if(bid_.begin(), bid_.end(), [&price](const pair_type& pair){ return pair.first == price; });
+      auto it = std::find_if(
+          bid_.begin(), bid_.end(),
+          [&price](const pair_type& pair) { return pair.first == price; });
       if (it != bid_.end()) {
         // Erase
         if (quantity < epsilon) {
@@ -56,7 +58,9 @@ class LinearSearchOrderbook {
       return;
     }
     // Ask ///////////////
-    auto it = std::find_if(ask_.begin(), ask_.end(),[&price](const pair_type& pair){ return pair.first == price; });
+    auto it = std::find_if(
+        ask_.begin(), ask_.end(),
+        [&price](const pair_type& pair) { return pair.first == price; });
     if (it != ask_.end()) {
       // Erase
       if (quantity < epsilon) {
