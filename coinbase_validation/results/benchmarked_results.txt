@@ -1,0 +1,36 @@
+Statistics:
+Total Snapshot Processing Time:
+ETH-USD - Time: 3133669 ns
+BTC-USD - Time: 11404780 ns
+
+L2 Message Processing Time:
+ETH-USD
+Count:     25
+Min (ns):  2535
+Mean (ns): 6759.00000000
+99% (ns):  24849
+Max (ns):  24849
+
+BTC-USD
+Count:     65
+Min (ns):  3456
+Mean (ns): 8712.21538462
+99% (ns):  35084
+Max (ns):  35084
+
+Orderbook Update Time:
+ETH-USD
+Count:     18390
+Min (ns):  30
+Mean (ns): 56.06405655
+99% (ns):  120
+Max (ns):  28674
+
+BTC-USD
+Count:     39061
+Min (ns):  30
+Mean (ns): 81.21079849
+99% (ns):  149
+Max (ns):  383987
+
+

@@ -1,0 +1,9 @@
+[submodule "Dense-Hashmap"]
+	path = submodules/Dense-Hashmap
+	url = https://github.com/drogalis/Dense-Hashmap
+[submodule "unordered_dense"]
+	path = submodules/unordered_dense
+	url = https://github.com/martinus/unordered_dense
+[submodule "submodules/Flat-Map-RB-Tree"]
+	path = submodules/Flat-Map-RB-Tree
+	url = https://github.com/drogalis/Flat-Map-RB-Tree

@@ -1,0 +1,88 @@
+---
+Language: Cpp
+Standard: Latest
+BasedOnStyle: Google
+
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: AcrossEmptyLinesAndComments
+AlignOperands: AlignAfterOperator
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortBlocksOnASingleLine: Empty
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortCompoundRequirementOnASingleLine: true
+AllowShortFunctionsOnASingleLine: InlineOnly
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: All
+AllowShortLoopsOnASingleLine: false
+AlwaysBreakAfterReturnType: TopLevelDefinitions
+AlwaysBreakTemplateDeclarations: Yes
+BraceWrapping:
+  AfterControlStatement: MultiLine
+  # TODO: use Multiline when it becomes available
+  AfterFunction: true
+  SplitEmptyFunction: false
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeBraces: Custom
+BreakBeforeConceptDeclarations: Always
+BreakBeforeTernaryOperators: true
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+ColumnLimit: 80
+ContinuationIndentWidth: 4
+Cpp11BracedListStyle: true
+DerivePointerAlignment: false
+EmptyLineAfterAccessModifier: Leave
+EmptyLineBeforeAccessModifier: Always
+FixNamespaceComments: true
+IncludeBlocks: Regroup
+IncludeCategories:
+  # local files
+  - Regex:           '^"'
+    Priority:        1
+    SortPriority:    1
+
+  # third party includes
+  - Regex:           '^<boost/'
+    Priority:        4
+    SortPriority:    4
+
+  # cpp std includes
+  - Regex:           '<([A-Za-z0-9\Q/-_\E])+>|<bits/'
+    Priority:        6
+    SortPriority:    6
+
+  # unknown includes that indicate it could not be matched against
+  - Regex:           '.*'
+    Priority:        10
+    SortPriority:    10
+IndentCaseBlocks: false
+IndentCaseLabels: false
+IndentGotoLabels: false
+IndentRequiresClause: true
+IndentWidth: 2
+IndentWrappedFunctionNames: false
+InsertBraces: true
+InsertTrailingCommas: None
+KeepEmptyLinesAtTheStartOfBlocks: false
+LambdaBodyIndentation: Signature
+MaxEmptyLinesToKeep: 1
+QualifierAlignment: Custom
+QualifierOrder: ['inline', 'constexpr', 'static', 'const', 'volatile', 'type']
+PackConstructorInitializers: NextLine
+PenaltyExcessCharacter: 10000
+PointerAlignment: Left
+ReferenceAlignment: Left
+ReflowComments: true
+RequiresClausePosition: OwnLine
+SeparateDefinitionBlocks: Always
+SortIncludes: CaseSensitive
+SortUsingDeclarations: Lexicographic
+SpaceAfterCStyleCast: true
+SpaceAfterLogicalNot: false
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyBlock: false
+SpaceInEmptyParentheses: false
+SpacesInAngles: false
+UseTab: Never
